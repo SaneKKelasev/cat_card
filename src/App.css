@@ -1,38 +1,217 @@
-.App {
+@font-face {
+  font-family: "Exo2.0";
+  font-style: normal;
+  src: url("./fonts/Exo2.0-Thin.woff2") format("woff2"),
+  url("./fonts/Exo2.0-Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "trebuchetms";
+  font-style: normal;
+  src: url("./fonts/trebuchetms.ttf") format("ttf");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: "Exo2.0", Arial, sans-serif;
+  color: white;
+  background-image: url('./img/pattern.png');
+}
+
+.app {
   text-align: center;
+  flex-basis: 1200px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app__question {
+  font-size: 36px;
+  line-height: 44px;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 1px #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 1200px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  gap: 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
+  position: relative;
+  width: 320px;
+  min-height: 480px;
+  box-sizing: border-box;
+  background:
+          url('./img/cat.png'),
+          linear-gradient(135deg,#1698D9 38px, rgba(242, 242, 242, 1) 38px);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 200px, 0%;
+  color: rgba(0, 0, 0, 1);
+  padding: 21px 51px;
+  box-shadow: inset 0 0 0 4px #1698D9;
+  border-radius: 12px;
+  overflow: hidden;
+  clip-path: polygon(15% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 10%);
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: inset 0 0 0 4px #2EA8E6;
+}
+
+.card:hover .weight{
+  background-color: #2EA8E6;
+}
+
+.checked {
+  box-shadow: inset 0 0 0 4px #D91667;
+  background:
+          url('./img/cat.png'),
+          linear-gradient(135deg,#D91667 38px, rgba(242, 242, 242, 1) 38px);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 200px, 0%;
+}
+
+.checked .weight {
+  background-color: #D91667;
+}
+
+.checked:hover {
+  box-shadow: inset 0 0 0 4px #E52E7A;
+  background:
+          url('./img/cat.png'),
+          linear-gradient(135deg,#E52E7A 38px, rgba(242, 242, 242, 1) 38px);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 200px, 0%;
+}
+
+.checked:hover .weight {
+  background-color: #E52E7A;
+}
+
+.disabled .card {
+  filter: contrast(50%);
+  box-shadow: inset 0 0 0 4px #B3B3B3;
+  background:
+          url('./img/cat.png'),
+          linear-gradient(135deg,#B3B3B3 38px, rgba(242, 242, 242, 1) 38px);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 200px, 0%;
+  cursor: auto;
+}
+
+.disabled .weight {
+  background-color: #B3B3B3;
+}
+
+.disabled:hover .weight {
+  background-color: #B3B3B3;
+}
+
+.disabled .buy {
+  color: rgba(255, 255, 102, 1)
+}
+
+.weight {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(22, 152, 217, 1);
+  color: #FFFFFF;
+  font-family: 'trebuchetms', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.weight__digit {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: .7em;
+  margin-top: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product {
+  margin-bottom: 20px;
+}
+
+.product-list {
+  font-family: "trebuchetms";
+  margin: 0;
+  color: #666666;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.product-name {
+  font-family: "trebuchetms", sans-serif;
+  margin: 0;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  color: #000000;
+}
+
+.product-taste {
+  font-family: "trebuchetms", sans-serif;
+  margin: 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.product-promo {
+  font-family: "trebuchetms", sans-serif;
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #666666;
+}
+
+.product-mouse {
+  font-family: "trebuchetms", sans-serif;
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #666666;
+}
+
+.weight__unit {
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0;
+}
+
+.buy {
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.buy__link {
+  color:rgba(22, 152, 217, 1);
+  text-decoration: underline dashed;
 }
